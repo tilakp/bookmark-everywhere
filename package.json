@@ -1,0 +1,134 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "bookmark-everywhere",
+  "title": "Bookmark Everywhere",
+  "description": "Save the selected, browsed, or copied URL to every bookmarking service you have connected, in one keypress.",
+  "icon": "extension-icon.png",
+  "author": "tilak",
+  "categories": [
+    "Web",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "bookmark-url",
+      "title": "Bookmark URL",
+      "subtitle": "Bookmark Everywhere",
+      "description": "Save the selected text, active browser tab, or clipboard URL to all enabled targets.",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "tags",
+      "type": "textfield",
+      "required": false,
+      "title": "Tags",
+      "description": "Tags applied to every target, separated by spaces.",
+      "placeholder": "inbox raycast"
+    },
+    {
+      "name": "goodlinksEnabled",
+      "type": "checkbox",
+      "required": false,
+      "default": true,
+      "title": "Targets",
+      "label": "GoodLinks",
+      "description": "Save to the GoodLinks app through its URL scheme."
+    },
+    {
+      "name": "pinboardEnabled",
+      "type": "checkbox",
+      "required": false,
+      "default": false,
+      "label": "Pinboard",
+      "description": "Save to pinboard.in through its API."
+    },
+    {
+      "name": "readwiseEnabled",
+      "type": "checkbox",
+      "required": false,
+      "default": false,
+      "label": "Readwise Reader",
+      "description": "Save to Readwise Reader through its API."
+    },
+    {
+      "name": "pinboardToken",
+      "type": "password",
+      "required": false,
+      "title": "Pinboard API Token",
+      "description": "The token from pinboard.in/settings/password, in the form username:XXXXXXXX.",
+      "placeholder": "username:XXXXXXXXXXXXXXXX"
+    },
+    {
+      "name": "pinboardPrivate",
+      "type": "checkbox",
+      "required": false,
+      "default": true,
+      "title": "Pinboard Options",
+      "label": "Save as private",
+      "description": "Keep Pinboard bookmarks unlisted."
+    },
+    {
+      "name": "pinboardToRead",
+      "type": "checkbox",
+      "required": false,
+      "default": true,
+      "label": "Mark as unread",
+      "description": "Add Pinboard bookmarks to the read later list."
+    },
+    {
+      "name": "readwiseToken",
+      "type": "password",
+      "required": false,
+      "title": "Readwise Access Token",
+      "description": "The token from readwise.io/access_token.",
+      "placeholder": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    },
+    {
+      "name": "readwiseLocation",
+      "type": "dropdown",
+      "required": false,
+      "title": "Readwise Location",
+      "default": "new",
+      "description": "Which Reader list new bookmarks land in.",
+      "data": [
+        {
+          "title": "Inbox",
+          "value": "new"
+        },
+        {
+          "title": "Later",
+          "value": "later"
+        },
+        {
+          "title": "Archive",
+          "value": "archive"
+        }
+      ]
+    }
+  ],
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "dependencies": {
+    "@raycast/api": "^2.1.3",
+    "@raycast/utils": "^2.3.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "eslint": "^10.9.1",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
