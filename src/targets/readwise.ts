@@ -1,4 +1,4 @@
-import { Bookmark, Target } from "../types";
+import type { Bookmark, Target } from "../types.ts";
 
 const ENDPOINT = "https://readwise.io/api/v3/save/";
 const REQUEST_TIMEOUT_MS = 15_000;

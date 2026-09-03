@@ -1,4 +1,4 @@
-import { Bookmark, Target } from "../types";
+import type { Bookmark, Target } from "../types.ts";
 
 const ENDPOINT = "https://api.pinboard.in/v1/posts/add";
 const REQUEST_TIMEOUT_MS = 15_000;

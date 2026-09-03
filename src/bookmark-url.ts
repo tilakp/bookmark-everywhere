@@ -1,8 +1,8 @@
 import { getPreferenceValues, showHUD, showToast, Toast } from "@raycast/api";
-import { targets } from "./targets";
-import { fetchTitle } from "./title";
-import { Bookmark, Target } from "./types";
-import { readUrl } from "./url-source";
+import { targets } from "./targets/index.ts";
+import { fetchTitle } from "./title.ts";
+import type { Bookmark, Target } from "./types.ts";
+import { readUrl } from "./url-source.ts";
 
 function parseTags(raw: string | undefined): string[] {
   return raw?.trim().split(/\s+/).filter(Boolean) ?? [];
