@@ -12,6 +12,12 @@ function names(list: Target[]): string {
   return list.map((target) => target.name).join(", ");
 }
 
+const MAX_URL_DISPLAY_LENGTH = 60;
+
+function truncateUrl(url: string): string {
+  return url.length > MAX_URL_DISPLAY_LENGTH ? `${url.slice(0, MAX_URL_DISPLAY_LENGTH - 1)}…` : url;
+}
+
 function reason(result: PromiseRejectedResult): string {
   return result.reason instanceof Error ? result.reason.message : String(result.reason);
 }
@@ -48,7 +54,7 @@ export default async function command() {
   const failed = enabled.filter((_, index) => results[index].status === "rejected");
 
   if (failed.length === 0) {
-    await showHUD(`Bookmarked to ${names(saved)}`);
+    await showHUD(`Bookmarked ${truncateUrl(source.url)} to ${names(saved)}`);
     return;
   }
 
